@@ -1,0 +1,54 @@
+html, body {margin: 0;}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.card {
+	color: black;
+	background: transparent;
+	border: none;
+	border-bottom: '2px solid #fff';
+	outline: none;
+	text-align: center;
+	width: 18.75vw;
+	height: 18vh;
+	font-size: 2vw;
+	font-family: 'Roboto', sans-serif;
+	margin-left: 5vw;
+	margin-top: 2vh;
+	display: inline-block;
+	position: relative;
+
+	z-index: 3;
+
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+	
+	cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.header {
+	display: inline-block;
+	background: #284961;
+	color: white;
+	height: 20vh;
+	position: fixed;
+	width: 100%;
+	z-index: 10;
+}
+
+.header-space {
+	height: 20vh;
+	width: 100%;
+}
+
+.title {
+	padding-top: 2vh;
+	margin-left: 3vw;
+	font-size: 6vh;
+}
