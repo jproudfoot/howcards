@@ -21,9 +21,11 @@ class MobileBoardNavigation extends Component {
 	
 	select(index) {
 		this.setState({selectedIndex: index});
+		this.props.handler(index);
 	}
 	
     render() {
+		if (this.props.loggedIn){
        return (
          <Paper zDepth={2}>
            <BottomNavigation selectedIndex={this.state.selectedIndex}>
@@ -50,6 +52,27 @@ class MobileBoardNavigation extends Component {
            </BottomNavigation>
 		</Paper>
 	  );
+  		}
+		else {
+	        return (
+	          <Paper zDepth={2}>
+	            <BottomNavigation selectedIndex={this.state.selectedIndex}>
+	              <BottomNavigationItem
+	                icon={recommendedIcon}
+	                onTouchTap={() => this.select(0)}
+	              />
+	              <BottomNavigationItem
+	                icon={publicIcon}
+	                onTouchTap={() => this.select(1)}
+	              />
+	              <BottomNavigationItem
+	                icon={deckIcon}
+	                onTouchTap={() => this.select(3)}
+	              />
+	            </BottomNavigation>
+	 		</Paper>
+	 	  );
+		}
 	}
 }
 

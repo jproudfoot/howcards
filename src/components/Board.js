@@ -19,36 +19,21 @@ const style = {
 class Board extends Component {
 	constructor(props) {
 		super(props);
-		
-		this._initialize = this._initialize.bind(this);
-		
-		this.state = {cards: []}
-	}
-	
-	componentDidMount() {
-		//Initialize Board
-		socket.emit('server:boardInitialization', this.props.tab);
-		socket.on('client:boardInitialization', this._initialize);
-	}
-	
-	componentWillRecieveProps(nextProps) {
-		//Initialize Board
-		socket.emit('server:boardInitialization', nextProps.tab);
-		socket.on('client:boardInitialization', this._initialize);
-	}
-	
-	_initialize(data) {
-		this.setState({ cards: data });
 	}
 	
 	render() {
-		if (this.state.cards.length == 0) {		//Return a spinner until init
+		if (this.props.cards.length == 0) {		//Return a spinner until init
 			return(<div style={style}><Spinner /></div>);	
 		}
 		
 		var cards = [];
-		for (var x = 0; x < this.state.cards.length; x++) {
-			cards.push(<Card data={ this.state.cards[x] } />);
+		for (var x = 0; x < this.props.cards.length; x++) {
+			if (this.props.tab == 2) { //If the current tab is favorites
+				cards.push(<Card user={this.props.user} data={ this.props.cards[x]} favorited={ true } />);
+			}
+			else {
+				cards.push(<Card user={this.props.user} data={ this.props.cards[x] } />);
+			}	
 		}
 
 		if (cards.length == 0){
@@ -56,7 +41,7 @@ class Board extends Component {
 		}
 		else {	
 			return (
-				<div style={style}>{cards}{cards}{cards}{cards}</div>
+				<div style={style}>{cards}{cards}{cards}{cards}{cards}{cards}{cards}{cards}</div>
 			);
 		}
 		

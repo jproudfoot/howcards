@@ -8,5 +8,4 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 ReactDOM.render(
-	<AppRoutes history={browserHistory} />, document.getElementById('root')
-);
+	<AppRoutes history={browserHistory} />, document.getElementById('root'));

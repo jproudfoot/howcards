@@ -25,7 +25,8 @@ class BoardNavigation extends Component {
 	}
 	
     render() {
-       return (
+		if (this.props.loggedIn) {
+       	 return (
          <Paper zDepth={2}>
            <BottomNavigation selectedIndex={this.state.selectedIndex}>
              <BottomNavigationItem
@@ -49,13 +50,37 @@ class BoardNavigation extends Component {
                onTouchTap={() => this.select(3)}
              />
 			 <BottomNavigationItem
-               label="Personal"
-               icon={personalIcon}
-               onTouchTap={() => this.select(4)}
-             />
+				label="Personal"
+				icon={personalIcon}
+				onTouchTap={() => this.select(4)}
+			 />
            </BottomNavigation>
 		</Paper>
 	  );
+  		}
+		else {
+          	 return (
+            	 <Paper zDepth={2}>
+              		<BottomNavigation selectedIndex={this.state.selectedIndex}>
+                		<BottomNavigationItem
+                  			label="Recommended"
+                  			icon={recommendedIcon}
+                  		  	onTouchTap={() => this.select(0)}
+                		/>
+                	<BottomNavigationItem
+                  		  label="Public"
+                  		  icon={publicIcon}
+                  		onTouchTap={() => this.select(1)}
+                	/>
+               		<BottomNavigationItem
+                  	  	label="Decks"
+                  	  	icon={deckIcon}
+                  	  	onTouchTap={() => this.select(3)}
+                	/>
+				</BottomNavigation>
+   				 </Paper>
+   	  		);
+		}	
 	}
 }
 

@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import CircularProgress from 'material-ui/CircularProgress';
 
 const style = {
-	width: '100%',
-	paddingLeft: 'calc(50% - 40px)',
-	paddingTop: 'calc(50vh - 100px)'
+	position: 'absolute',
+	left: 'calc(50% - 40px)',
+	top: 'calc(50vh - 40px)'
 }
 
 class Spinner extends Component {
